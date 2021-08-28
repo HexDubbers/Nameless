@@ -64,7 +64,7 @@ if(!isset($_GET['metadata'])){
 
                 $success = $language->get('admin', 'sitemap_generated');
             } else if(Input::get('type') == 'google_analytics') {
-                $configuration->set('Core', 'ga_script', Input::get('analyticsid'));
+                $configuration->set('Core', 'ga_script', Output::getPurified(Input::get('analyticsid')));
 
                 $success = $language->get('admin', 'settings_updated_successfully');
             }
